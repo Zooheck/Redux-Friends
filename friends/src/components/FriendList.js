@@ -1,16 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FriendList = props => {
-  return (
+import { connect } from 'react-redux'
+
+import { getFriends } from '../actions/ActionIndex.js'
+
+
+
+class FriendList extends React.Component {
+  componentDidMount() {
+    this.props.getFriends()
+  }
+  render() {
+    return (
     <div>
-      
+      <h1>Friends:</h1>
     </div>
   )
+}
 }
 
 FriendList.propTypes = {
 
 }
 
-export default FriendList
+const mapStateToProps = state => ({
+
+})
+
+
+export default connect(mapStateToProps, { getFriends } )(FriendList)
