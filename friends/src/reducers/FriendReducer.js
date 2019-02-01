@@ -2,14 +2,22 @@ import { FETCHING, SUCCESS, FAILURE } from '../actions/ActionIndex.js'
 
 
 const initialState = {
-    friends: []
+    friends: [],
+    isLoading: false
 }
 
 export const friendsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCHING:
+        case FETCHING: 
             return {
-                friends: action.payload
+                ...state,
+                isLoading: true
+            }
+        case SUCCESS:
+            return {
+                ...state,
+                friends: action.payload,
+                isLoading: false
             }
         default:
             return state

@@ -11,6 +11,10 @@ export const getFriends = () => dispatch => {
     axios
         .get('http://localhost:5000/api/friends')
         .then(response => {
-            dispatch({ type: FETCHING, payload: response.data})
+            dispatch({ type: SUCCESS, payload: response.data})
         })
+}
+
+export const addFriend = state => dispatch => {
+    
 }
