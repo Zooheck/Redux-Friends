@@ -10,7 +10,6 @@ import { getFriends } from '../actions/ActionIndex.js'
 class FriendList extends React.Component {
   componentDidMount() {
     this.props.getFriends()
-    console.log(this.props.friends)
   }
   render() {
     return (
