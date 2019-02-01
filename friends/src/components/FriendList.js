@@ -35,7 +35,8 @@ FriendList.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  friends: state.friends
+  friends: state.friends,
+  error: state.error
 })
 
 

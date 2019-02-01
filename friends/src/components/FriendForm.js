@@ -18,20 +18,27 @@ class FriendForm extends Component {
             [name]: value
         })
     }
+    submitFriend = e => {
+        e.preventDefault()
+        this.props.addFriend(this.state)
+    }
     render() {
         return (
             <form>
                 <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
                 <input type="number" name="age" value={this.state.age} onChange={this.handleChange}/>
                 <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
-                <button>Add New Friend</button>
+                <button onClick={this.submitFriend}>Add New Friend</button>
             </form>
         );
     }
 }
 
 FriendForm.propTypes = {
-
+    addFriend: PropTypes.func
 };
 
-export default FriendForm;
+// const mapStateToProps = state => ({
+    
+// })
+export default connect(null, { addFriend })(FriendForm);

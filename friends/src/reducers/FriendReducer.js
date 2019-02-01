@@ -1,9 +1,10 @@
-import { FETCHING, SUCCESS, FAILURE } from '../actions/ActionIndex.js'
+import { FETCHING, SUCCESS, ERROR, ADDING, ADD_SUCCESS } from '../actions/ActionIndex.js'
 
 
 const initialState = {
     friends: [],
-    isLoading: false
+    isLoading: false,
+    error: false
 }
 
 export const friendsReducer = (state = initialState, action) => {
@@ -18,6 +19,22 @@ export const friendsReducer = (state = initialState, action) => {
                 ...state,
                 friends: action.payload,
                 isLoading: false
+            }
+        case ADDING:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case ADD_SUCCESS:
+            return {
+                ...state,
+                friends: action.payload,
+                isLoading: false
+            }
+        case ERROR:
+            return {
+                ...state,
+                error: true
             }
         default:
             return state
